@@ -1,0 +1,232 @@
+@import "../../../../assets/scss/colors";
+
+.marketOverviewCard {
+  background-color: #fff;
+  border-radius: 12px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column;
+
+  .filterAssetsList {
+    display: flex;
+    direction: ltr;
+    width: 100%;
+
+    &>li {
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 400;
+      background: #e8edf2;
+      border-radius: 4px;
+      font-size: 12px;
+
+      &.active {
+        color: #fff;
+        position: relative;
+        background: var(--main-blue);
+
+        &:before {
+          position: absolute;
+          background-color: var(--main-blue);
+          // content: "";
+          width: 50%;
+          height: 1px;
+          bottom: 0px;
+        }
+      }
+    }
+  }
+
+  .searchInput {
+    width: 65%;
+    border: none;
+    position: relative;
+
+    .icon {
+      position: absolute;
+      right: 10px;
+      top: 2px;
+      opacity: 0.7;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.2rem 0.5rem !important;
+      border: 1px solid #eaeaea;
+      text-align: right;
+      border-radius: 6px;
+      outline: none;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
+      padding-right: 40px !important;
+      height: 32px;
+      line-height: 32px;
+
+      &::-webkit-input-placeholder {
+        font-size: 12px;
+        // line-height: 3;
+      }
+    }
+  }
+
+  .listContainer {
+    flex-grow: 1;
+    height: calc(100% - 116px);
+
+    .autoSizer {
+      overflow: visible;
+      height: 100%;
+      width: 100%;
+
+      .fixedSizeList {
+        position: relative;
+        // height: 100%;
+        width: 100%;
+        height: 100%;
+        // width: 320px;
+        overflow: auto;
+        will-change: transform;
+        direction: ltr;
+
+        &::-webkit-scrollbar,
+        &::-moz-scrollbar {
+          width: 3px;
+        }
+
+        .marketItem {
+          display: flex;
+          -webkit-box-align: center;
+          align-items: center;
+          overflow-x: hidden;
+          position: absolute;
+          left: 0px;
+          height: 32px;
+          width: 100%;
+          border-bottom: 1px solid var(--main-bg-light-2);
+
+          .marketContent {
+            display: flex;
+            box-sizing: border-box;
+            height: 100%;
+            font-size: 12px;
+            color: rgb(132, 142, 156);
+            text-decoration: none;
+            width: 100%;
+            cursor: pointer;
+
+            .item {
+              display: flex;
+              -webkit-box-align: center;
+              align-items: center;
+              user-select: none;
+              font-size: 12px;
+
+              &.symbol {
+                flex: 5 1 0px;
+                justify-content: flex-start;
+                min-width: 120px;
+
+                .favorite {
+                  display: flex;
+                  -webkit-box-align: center;
+                  align-items: center;
+
+                  .activeStar {
+                    color: var(--main-blue);
+                  }
+                }
+
+                .symbolText {
+                  display: flex;
+                  -webkit-box-align: center;
+                  align-items: center;
+                  flex: 1 1 0%;
+                  font-size: 12px;
+                  font-weight: 400;
+                }
+              }
+
+              &.price {
+                flex: 3 1 0px;
+                min-width: 50px;
+                justify-content: flex-end;
+
+                .itemPriceText {}
+              }
+
+              &.percent {
+                flex: 5 1 0px;
+                min-width: 60px;
+                justify-content: flex-end;
+
+                .itemChangeText {}
+              }
+            }
+          }
+
+          // .itemSymbol {
+          //   display: flex;
+          //   align-items: center;
+          //   user-select: none;
+          //   flex: 5 1 0px;
+          // }
+          // .itemPrice {
+          //   display: flex;
+          //   align-items: center;
+          //   user-select: none;
+          //   flex: 3 1 0px;
+          // }
+          // .itemPrecent {
+          //   display: flex;
+          //   align-items: center;
+          //   user-select: none;
+          //   flex: 5 1 0px;
+          // }
+        }
+      }
+    }
+  }
+}
+
+// .filterCoinsList {
+//   display: flex;
+//   & > li {
+//     border-radius: 8px;
+
+//     &.active {
+//       background-color: #cecccb;
+//       color: #fff;
+//     }
+//   }
+// }
+// .marketOverviewCard {
+//   // border: 1px solid #e0e1e2;
+//   background-color: #fff;
+//   border-radius: 12px;
+//   height: 100%;
+//   overflow: hidden;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   flex-flow: column;
+
+//   }
+
+//   .coins {
+//     width: 100%;
+//     flex-grow: 1;
+//     direction: ltr;
+//   }
+// }
+
+// .textColor {
+//   // color: attr(color);
+//   &[color="green"] {
+//     color: #00c56e;
+//   }
+
+//   &[color="red"] {
+//     color: #ff305b;
+//   }
+// }

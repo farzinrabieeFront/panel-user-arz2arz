@@ -1,0 +1,22 @@
+.tips {
+    border-radius: 12px;
+    padding: 0.75rem;
+
+    svg {
+        vertical-align: middle;
+        margin-left: 9px;
+    }
+
+    &[variant=info] {
+        background: var(--main-hover-bg);
+    }
+
+    &[variant=warning] {
+        background: var(--main-warning-bg);
+    }
+
+    &[variant=danger] {
+        color: (--main-red-2) !important;
+        background: var(--main-danger-bg);
+    }
+}

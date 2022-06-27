@@ -1,0 +1,39 @@
+.allOrders {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coins {
+  direction: ltr;
+  height: 100%;
+  // overflow: scroll;
+  // overflow-x: hidden;
+
+  &::-webkit-scrollbar , &::-moz-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track , &::-moz-scrollbar-track {
+    background: #e8edf2;
+  }
+
+  &::-webkit-scrollbar-thumb , &::-moz-scrollbar-thumb {
+    background: #bcc1cd;
+  }
+
+  &::-webkit-scrollbar-thumb:hover , &::-moz-scrollbar-thumb:hover {
+    background: #969caa;
+  }
+
+  .price {
+    &[color="green"] {
+      color: #00c56e;
+    }
+
+    &[color="red"] {
+      color: #ff305b;
+    }
+  }
+}

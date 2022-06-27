@@ -1,0 +1,90 @@
+@import "../../../../assets/scss/mixins/responsive";
+
+.address {
+  width: calc(100% - 62px);
+  word-wrap: break-word;
+  line-height: 15px;
+  padding-left: 5px;
+  display: inline-block;
+}
+
+// .icon {
+//   width: 6%;
+//   text-align: left;
+// }
+
+.svg {
+  &.copied {
+    animation: heartScale 0.7s ease-in-out 1 alternate;
+    -webkit-animation: heartScale 0.7s ease-in-out 1 alternate;
+  }
+}
+
+.qrModal {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  left: -30px;
+  padding: 10px;
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  canvas{
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.qrIcon:hover + .qrModal {
+  display: flex;
+}
+.addInput {
+  height: auto;
+  min-height: 48px;
+}
+.AdIconBox {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 62px;
+  .Adicon {
+    padding: 0 6px;
+  }
+}
+@keyframes heartScale {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.3);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1.2);
+    color: var(--main-blue);
+  }
+}
+
+@include breakpoint(sm) {
+  .address {
+    width: calc(100% - 82px);
+  }
+
+  .AdIconBox {
+    width: 82px;
+    .Adicon {
+      padding: 0 12px;
+    }
+  }
+}

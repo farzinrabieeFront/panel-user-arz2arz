@@ -1,0 +1,72 @@
+@import "/src/assets/scss/mixins/responsive";
+
+.container {
+  display: none;
+}
+
+.img {
+  max-height: 32px;
+}
+ 
+.canvas { 
+  max-width: 250px;
+  z-index: 1046 !important;
+}
+.notifIcon {
+  position: relative;
+  .notifCount {
+    position: absolute;
+    background-color: var(--main-red);
+    color: #fff;
+    border-radius: 6px;
+    padding: 0px 1px;
+    top: -3px;
+    left: -5px;
+    width: 16px;
+    text-align: center;
+    font-size: 8px;
+    height: 16px;
+    border: 2px solid #1e2225;
+  }
+}
+#sidebarCanvas{
+  z-index: 1050 !important;
+}
+.menuButton{
+  width: 76px;
+}
+.notifBox {
+    max-width: 100%;
+  // min-width: 320px;
+  
+  .list {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+
+    &.read {
+      background-color: white;
+    }
+    &:hover {
+      background-color: #F5F7F8;
+    }
+  }
+  .text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  .svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+@include breakpoint(lg) {
+  .container {
+    display: block;
+    position: relative;
+    //z-index: 1036;
+
+  }
+}

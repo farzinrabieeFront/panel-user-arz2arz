@@ -1,0 +1,87 @@
+.input {
+  width: 275px;
+  position: relative;
+  padding-right: 30px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+
+  input {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    color: #505050;
+    padding: 0;
+    padding-right: 1rem;
+
+    &::-moz-placeholder,
+    &::-webkit-input-placeholder {
+      opacity: 1;
+    }
+
+    &:focus,
+    &:active {
+      border: none;
+      outline: none;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    right: 10px;
+    opacity: 0.7;
+  }
+}
+
+.options {
+  border-radius: 12px;
+  border: 1px solid #d9e0e9;
+
+  &:hover {
+    border: 1px solid var(--main-blue);
+    box-shadow: 0px 4px 10px rgba(0, 186, 186, 0.2);
+  }
+
+  & h2,
+  & p {
+    transition: none;
+  }
+}
+.selected {
+  background: var(--main-blue);
+  border: 1px solid var(--main-blue);
+  box-shadow: 0px 2px 6px rgba(0, 186, 186, 0.5);
+
+  & h2,
+  & p {
+    color: #ffffff;
+    transition: none;
+  }
+}
+
+.questions {
+  max-height: 1.6rem;
+  transition: all 0.5s;
+  & svg {
+    transition: transform 0.5s;
+  }
+}
+
+.activeQue {
+  max-height: 3rem;
+  transition: all 0.5s;
+  & svg {
+    transition: transform 0.5s;
+    transform: rotate(-90deg);
+  }
+}
+
+.activeIcon {
+  svg {
+    transition: all 0.5s;
+    transform: rotate(-90deg);
+  }
+}

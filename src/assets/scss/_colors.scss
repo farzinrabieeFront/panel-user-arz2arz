@@ -1,0 +1,148 @@
+.text- {
+  &gray- {
+    &0 {
+      color: var(--main-gray-0);
+    }
+
+    &05 {
+      color: var(--main-gray-05);
+    }
+
+    &1 {
+      color: var(--main-gray-1);
+    }
+
+    &2 {
+      color: var(--main-gray-2);
+    }
+
+    &3 {
+      color: var(--main-gray-3);
+    }
+
+    &4 {
+      color: var(--main-gray-4);
+    }
+    &5 {
+      color: var(--main-gray-5);
+    }
+  }
+
+  &red {
+    color: var(--main-red);
+  }
+
+  &purple {
+    color: var(--main-purple) !important;
+
+    &-light {
+      color: var(--main-purple-light) !important;
+    }
+  }
+
+  &orange {
+    color: var(--main-orange);
+  }
+
+  &danger {
+    color: var(--main-red) !important;
+  }
+
+  &success {
+    color: var(--main-green) !important;
+  }
+
+  &blue {
+    color: var(--main-blue) !important;
+
+    &-light {
+      color: var(--main-blue-50) !important;
+    }
+  }
+
+  &yellow {
+    color: var(--main-yellow) !important;
+
+    &-2 {
+      color: var(--main-yellow-2) !important;
+    }
+  }
+}
+
+.bg- {
+  &transparent {
+    background-color: transparent;
+  }
+
+  &hover {
+    background-color: var(--main-hover-bg);
+  }
+
+  &success {
+    background-color: var(--main-green) !important;
+  }
+
+  &orange {
+    background-color: var(--main-orange);
+  }
+
+  &danger {
+    background-color: var(--main-red) !important;
+  }
+
+  &blue {
+    background-color: var(--main-blue) !important;
+
+    &-light {
+      background-color: var(--main-blue-light) !important;
+    }
+  }
+
+  &light {
+    background-color: var(--main-bg-light) !important;
+  }
+
+  &light-2 {
+    background-color: var(--main-bg-light-2) !important;
+  }
+
+  &dark {
+    background-color: var(--main-bg-dark) !important;
+  }
+
+  &warning {
+    background-color: var(--main-warning-bg) !important;
+  }
+}
+
+.badge.bg {
+  &-danger {
+    background-color: rgba($color: #ed5254, $alpha: 0.1) !important;
+    color: var(--main-red) !important;
+  }
+
+  &-success {
+    background-color: rgba($color: #26ab6d, $alpha: 0.1) !important;
+    color: var(--main-green) !important;
+  }
+
+  &-warning {
+    background-color: rgba($color: #f0b90b, $alpha: 0.1) !important;
+    color: var(--main-yellow-2) !important;
+  }
+
+  &-secondary {
+    background-color: var(--main-bg-light) !important;
+    color: var(--main-gray-3) !important;
+  }
+
+  &-info {
+    background-color: rgba($color: #00b4d8, $alpha: 0.15) !important;
+    color: var(--main-blue);
+  }
+
+  &-gray {
+    background-color: rgba(31, 33, 36, 0.1) !important;
+    color: var(--main-gray-3);
+  }
+}

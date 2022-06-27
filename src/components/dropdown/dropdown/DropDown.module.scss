@@ -1,0 +1,54 @@
+.Dropdown {
+    direction: rtl;
+
+    button {
+        background-color: inherit !important;
+        border: inherit !important;
+        box-shadow: inherit !important;
+        background-color: inherit !important;
+        color: var(--main-gray-3) !important;
+        font-size: 0.875rem;
+        padding: 0;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: inherit;
+        }
+    }
+
+    >div {
+        text-align: right;
+    }
+}
+
+.dropMenu {
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.16);
+    border-radius: 8px;
+    border: none;
+    min-width: 8rem;
+    padding: 0.5rem;
+
+    p {
+        margin-bottom: 4px;
+        color: var(--main-gray-3);
+        font-weight: 500;
+        font-size: 12px;
+        padding: 6px 12px;
+        transition: all 0.3s ease-in;
+        border-radius: 8px;
+        cursor: pointer;
+        min-height: 32px;
+        align-items: center;
+        display: flex;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            background-color: var(--main-hover-bg);
+            color: var(--main-blue);
+        }
+    }
+}

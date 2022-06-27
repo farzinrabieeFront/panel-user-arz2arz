@@ -1,0 +1,167 @@
+@import "/src/assets/scss/mixins/responsive";
+
+.market {
+  display: flex;
+  width: 100%;
+  height: 48px;
+  position: relative;
+
+  .base,
+  .quote {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    & > div {
+      display: flex;
+      position: relative;
+      align-items: center;
+      height: 100%;
+
+      .label {
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+      }
+    }
+
+    .balance {
+      position: absolute;
+      // right: 0;
+      top: 80%;
+    }
+  }
+
+  .base {
+    width: 50%;
+    height: 100%;
+    border: 1px solid var(--main-red);
+    border-left: unset;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
+    border-radius: 0 12px 12px 0;
+
+    .balance {
+      right: 0;
+    }
+  }
+
+  .quote {
+    width: 50%;
+    height: 100%;
+    border: 1px solid var(--main-green);
+    border-right: unset;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
+    border-radius: 12px 0 0 12px;
+
+    .balance {
+      left: 0;
+    }
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    height: 33.94112549695428px;
+    width: 33.94112549695428px;
+    border: 1px solid var(--main-red);
+    border-right: none;
+    border-bottom: none;
+    // border-left: 1px solid var(--main-red);
+    top: 15%;
+    right: 50%;
+    transform: translateX(70%) rotate(-46deg);
+    border-radius: 4px 0 0 0;
+  }
+
+  .ChangeAssets {
+    position: absolute;
+    color: var(--main-gray-0);
+    transition: all 0.3s ease;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 110%);
+
+    &:hover {
+      color: var(--main-blue);
+    }
+
+    @include breakpoint(sm) {
+      &:hover {
+        color: var(--main-gray-0);
+      }
+    }
+  }
+}
+
+img.imgIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+}
+
+.modal {
+  overflow: hidden;
+}
+
+.head {
+  .searchInput {
+    width: 100%;
+    border: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .icon {
+      position: absolute;
+      right: 12px;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem 0.5rem !important;
+      border: 1px solid #d9e0e8;
+      text-align: right;
+      outline: none;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
+      border-radius: 12px;
+      padding-right: 38px !important;
+      height: 45px;
+      line-height: 45px;
+
+      &::-webkit-input-placeholder {
+        font-size: 12px;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.list {
+  overflow: auto;
+  overflow-x: hidden;
+  height: 450px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+.item {
+  cursor: pointer;
+  border-top: 1px solid var(--main-bg-light-2);
+  min-height: 48px;
+  transition: all 0.3s ease;
+
+  .img {
+    img {
+      border-radius: 100%;
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  &:hover {
+    background-color: var(--main-bg-light);
+  }
+}

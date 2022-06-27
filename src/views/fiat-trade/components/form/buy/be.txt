@@ -1,0 +1,55 @@
+if (spotAsset !== "USDT") {
+      let internalLowest = 0,
+        externalLowest = 0,
+        internalhighest = 0,
+        externalhighest = 0;
+
+      internalLowest = math.multiply(
+        Number(internalLimit.lowest || 0),
+        usd_price
+      );
+      externalLowest = math.multiply(Number(MIN_NOTIONAL), usd_price);
+      internalLowest = internalLowest === Infinity ? 0 : internalLowest;
+      externalLowest = externalLowest === Infinity ? 0 : externalLowest;
+
+      min_amount = math.max(internalLowest, externalLowest);
+      if (min_amount && min_amount !== minimumAmount)
+        setMinimumAmount(min_amount);
+
+      console.log(internalLowest, externalLowest, min_amount);
+
+      internalhighest = math.multiply(
+        Number(internalLimit.highest || 0),
+        usd_price
+      );
+      externalhighest = math.multiply(Number(LOT_SIZE_maxQty), usd_price);
+      internalhighest = internalhighest === Infinity ? 0 : internalhighest;
+      externalhighest = externalhighest === Infinity ? 0 : externalhighest;
+
+      max_amount = math.min(internalhighest, externalhighest);
+      if (max_amount && max_amount !== maximumAmount)
+        setMaximumAmount(max_amount);
+
+      total_fee = math.add(math.divide(Number(internalFee), 100), Number(fee));
+    } else {
+      let internalLowest = 0,
+        internalhighest = 0;
+
+      internalLowest = math.multiply(
+        Number(internalLimit?.lowest || 0),
+        usd_price
+      );
+      internalhighest = math.multiply(
+        Number(internalLimit.highest || 0),
+        market_price
+      );
+      total_fee = math.divide(Number(internalFee), 100);
+
+      internalLowest = internalLowest === Infinity ? 0 : internalLowest;
+      internalhighest = internalhighest === Infinity ? 0 : internalhighest;
+
+      if (internalLowest && internalLowest !== minimumAmount)
+        setMinimumAmount(internalLowest);
+      if (internalhighest && internalhighest !== maximumAmount)
+        setMaximumAmount(internalhighest);
+    }

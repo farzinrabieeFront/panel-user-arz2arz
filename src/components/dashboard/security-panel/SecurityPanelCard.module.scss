@@ -1,0 +1,22 @@
+@import '/src/assets/scss/mixins/responsive';
+
+
+@include breakpoint(md) {
+    .border {
+        border: none;
+        border-top: 1px solid #e6ebfd;
+        padding-top: 0.5rem;
+        margin-top: 0.5rem
+    }
+}
+
+@include breakpoint(sm) {
+    .border {
+
+        border-top: none;
+        border-right: 1px solid #e6ebfd;
+        padding-top: 0;
+        margin-top: 0
+    }
+
+}

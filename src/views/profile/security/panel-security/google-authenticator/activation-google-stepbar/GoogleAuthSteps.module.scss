@@ -1,0 +1,80 @@
+@import "../../../../../../assets/scss/mixins/responsive";
+
+.container {
+  position: relative;
+
+  .progressSteps {
+    background: #e8edf2;
+    position: absolute;
+    width: 85%;
+    height: 8px;
+    right: 50px;
+    display: flex;
+    align-items: center;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: width 0.3s ease-in;
+    -webkit-transition: width 0.3s ease-in;
+    -moz-transition: width 0.3s ease-in;
+    top: 17px;
+
+    .current {
+      background: var(--main-blue-grd);
+      position: absolute;
+      height: 8px;
+    }
+  }
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--main-bg-light);
+  border-radius: 100%;
+  position: relative;
+  z-index: 9;
+}
+
+.step {
+  label {
+    margin-top: 2px;
+  }
+
+  &.active {
+    .icon {
+      background-color: var(--main-blue);
+      border: 2px solid var(--main-blue);
+    }
+
+    .text {
+      color: var(--main-blue);
+    }
+  }
+  &.done {
+    .icon {
+      background-color: #fff;
+      border: 2px solid var(--main-blue);
+    }
+    .text {
+      color: var(--main-blue);
+    }
+  }
+}
+
+@include breakpoint(xs) {
+  .step {
+    width: 32px;
+    height: 32px;
+
+    .current {
+      font-size: 10px;
+
+      &::after {
+        top: 32px;
+        font-size: 9px;
+      }
+    }
+  }
+}

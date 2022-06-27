@@ -1,0 +1,21 @@
+.input {
+    min-height: 32px;
+    padding: 3px 12px 3px 18px;
+    border: 2px solid #D9E0E9;
+    border-radius: 16px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--main-gray-4); 
+    margin-right: 0 !important;
+    margin-left: 1rem;
+    input {
+        float: right !important;
+        margin-left:0.5rem !important; 
+    }
+}
+.label{
+    margin-bottom: 4px;
+    font-weight: 500;
+    margin-right: 4px;
+}

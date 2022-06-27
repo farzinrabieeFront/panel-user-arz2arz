@@ -1,0 +1,60 @@
+.label {
+  margin-bottom: 4px;
+  font-weight: 500;
+  margin-right: 4px;
+  font-size: 12px;
+  color: var(--main-gray-3);
+}
+
+.datePicker {
+  background: #ffffff;
+  border: 1px solid var(--main-gray-border);
+  box-sizing: border-box;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
+  height: 48px;
+  transition: all 0.3s ease-in;
+  color: var(--main-gray-4);
+  outline: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  padding-left: 40px;
+  cursor: pointer;
+  width: 100%;
+
+  &:hover {
+    border: 1px solid var(--main-blue-50);
+  }
+
+  &:focus,
+  &:active {
+    border-color: var(--main-blue);
+    box-shadow: none;
+  }
+
+  &:invalid,
+  &.is-invalid {
+    border-color: var(--main-red);
+
+    &:focus,
+    &:active {
+      border-color: var(--main-red);
+    }
+  }
+
+  &.small {
+    border-radius: 8px;
+    height: 33px;
+  }
+}
+
+.icon {
+  position: absolute;
+
+  left: 15px;
+}
+.inputErrorText {
+  position: absolute;
+  top: 100%;
+  right: 2px;
+  padding-top: 2px;
+}

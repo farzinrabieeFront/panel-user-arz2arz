@@ -1,0 +1,37 @@
+.card {
+  width: 100%;
+  height: 170px;
+  border-radius: 20px;
+  background-color: rgba($color: #00baba, $alpha: 0.04);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 3px 8px rgba($color: #00baba, $alpha: 0.3);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    background: var(--main-blue);
+    opacity: 0.15;
+    filter: blur(60px);
+    z-index: 1;
+  }
+
+  &::before {
+    width: 170px;
+    height: 170px;
+    bottom: -70px;
+    right: -53px;
+  }
+
+  &::after {
+    width: 220px;
+    height: 220px;
+    top: -100px;
+    left: -53px;
+  }
+}
+.spacing {
+  word-spacing: 5px;
+}

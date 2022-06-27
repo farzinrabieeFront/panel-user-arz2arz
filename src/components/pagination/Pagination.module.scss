@@ -1,0 +1,9 @@
+@import '/src/assets/scss/mixins/responsive';
+
+.pagination {}
+
+@include breakpoint(sm) {
+    .nextPrev {
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,25 @@
+@import "/src/assets/scss/mixins/responsive";
+
+.FileInput {
+  height: 50px;
+  border: 1px dashed #AFB7CB;
+  border-radius: 20px;
+  width: 75%;
+
+  input {
+    border: 0;
+    display: none;
+  }
+}
+
+.textOverFlow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@include breakpoint(xs) {
+  .FileInput {
+    width: 100%;
+  }
+}

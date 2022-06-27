@@ -1,0 +1,41 @@
+@import "/src/assets/scss/mixins/responsive";
+
+
+.legendBar {
+    width: 100%;
+}
+
+.circle {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--main-blue);
+    border-radius: 50%;
+    margin-right: 6px;
+
+    &[theme="purple"] {
+        background-color: #8b87ea;
+    }
+
+    &[theme="yellow"] {
+        background-color: #f5d160;
+    }
+
+    &[theme="blue"] {
+        background-color: #a9d2f0;
+    }
+
+    &[theme="green"] {
+        background-color: #67c499;
+    }
+
+    &[theme="pink"] {
+        background-color: #efa9f0;
+    }
+}
+
+@include breakpoint(xs) {
+    .legendBar {
+        width: 50%;
+    }
+}

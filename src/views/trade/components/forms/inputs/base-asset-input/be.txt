@@ -1,0 +1,199 @@
+import { useEffect, useRef, useState, memo } from "react";
+import Styles from "./BaseAssetInput.module.scss";
+import * as math from "mathjs";
+import { RiWalletLine, AiFillCaretDown, FiSearch } from "react-icons/all";
+import { useSelector } from "react-redux";
+import CustomizedModal from "../../../../../../components/modal/Modal";
+import { useOrder } from "../../../../../../context/OrderServises";
+import DefaultIcon from "../../../../../../assets/images/coin-binance1.png"
+import { useField } from "formik";
+import { config } from "mathjs";
+
+function BaseAssetInput({
+  label,
+  className,
+  labelClassName,
+  ...props
+}) {
+  const [
+    { name, value, onChange, ...field },
+    { error, touched },
+    { setValue },
+  ] = useField(props);
+
+  const { list: currencies } = useSelector((state) => state.currencies);
+
+  let { configs } = useSelector((state) => state.config);
+
+  const { prices, refCurrency, balance } = useOrder();
+
+  const [searchBox, setSearchBox] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [options, setOptions] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let list = [];
+    for (const key in configs) {
+      if (configs[key].trading && !list.includes(key)) list.push(key);
+    }
+    setOptions(list);
+  }, [configs]);
+
+  useEffect(() => {
+    setSearchBox("");
+    setShowModal(false);
+    setPage(1);
+  }, [value]);
+
+  return (
+    <>
+      {label ? (
+        <label
+          className={`${Styles.selectionLabel} ${labelClassName} sans-Medium`}
+        >
+          {label}
+        </label>
+      ) : null}
+
+      <div
+        className={`${Styles.selection} ${className} p-2 rounded-5 d-flex justify-content-between align-items-center pointer`}
+        onClick={() => setShowModal(true)}
+      >
+        <div className="d-flex align-items-center">
+          {currencies[value]?.icon ? (
+            <img
+              className={`${Styles.imgIcon} ml-2`}
+              src={`https://main.arz2arz.net/api/v1/spotCurrency/images/${currencies[value]?.icon}`}
+              alt=""
+            />
+          ) : (
+            <img
+              className={`${Styles.imgIcon} ml-2`}
+              src={DefaultIcon}
+            />
+          )}
+
+          <span className="size-4  text-gray-4 roboto-Medium">{value}</span>
+        </div>
+        <AiFillCaretDown size={12} className="text-gray-2" />
+      </div>
+
+      <CustomizedModal
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        keyboard={true}
+        backdrop="static"
+        contentClassName={Styles.modal}
+        centered
+        size="md"
+        title={` انتخاب ${label}`}
+      >
+        <div className={`${Styles.head} mb-3`}>
+          <div className={Styles.searchInput}>
+            <span className={Styles.icon}>
+              <FiSearch className="text-gainsboro" size={20} />
+            </span>
+            <input
+              type="text"
+              placeholder="جستجو"
+              className="is-size-8"
+              onChange={(e) => setSearchBox(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <ul className={`${Styles.list} mt-3 px-2`}>
+          <li
+            className={`${Styles.items}  transition py-2 px-2 d-flex align-items-center justify-content-between`}
+          >
+            <span className="size-5 text-gray-2">نام ارز</span>
+            <span className="size-5 text-gray-2">دارایی کیف پول</span>
+          </li>
+          {options.length
+            ? options
+              .filter((coin) => new RegExp(searchBox, "gi").test(coin))
+              .slice(0, page * 30)
+              .map((coin) => {
+                return (
+                  <li
+                    key={coin}
+                    className={`${Styles.items}  transition py-2 px-2 d-flex align-items-center justify-content-between`}
+                    onClick={() => setValue(coin)}
+                  >
+                    <div className="d-flex align-items-center">
+                      <div className={`${Styles.img} ml-3`}>
+                        {currencies[coin]?.icon ? (
+                          <img
+                            src={`https://main.arz2arz.net/api/v1/spotCurrency/images/${currencies[coin]?.icon}`}
+                            alt=""
+                          />
+                        ) : (
+                          <img
+                            src={DefaultIcon}
+                            alt=""
+                          />
+                        )}
+                      </div>
+                      <div>
+                        <div className="d-flex align-items-center">
+                          <div className="size-4  text-gray-4 roboto-Bold">
+                            {coin}
+                          </div>
+                          <div className="size-5 text-gray-1 roboto-Light me-2">
+                            {currencies[coin]?.name
+                              ? `(${currencies[coin]?.name})`
+                              : null}
+                          </div>
+                        </div>
+                        {/* <div className="is-size-8 text-grayBlue font-weight-bold d-block">
+                            {coin === "USDT" ? "تتر" : currencies[coin]?.faName}
+                          </div> */}
+                      </div>
+                    </div>
+                    {/* {balance.spotWallets && balance.spotWallets[coin] ? (
+                      <div className="d-flex align-items-center ">
+                        <div className="is-size-8 roboto-Bold">{coin}</div>
+                        <div className="mx-1 is-size-8 roboto-Bold">
+                          {math.fix(balance.spotWallets[coin].balance, 8)}
+                        </div>
+                        <RiWalletLine size={16} />
+                      </div>
+                    ) : null} */}
+
+                    <div className="d-flex align-items-center ">
+                      <div className="is-size-8 text-gray-1 roboto-Light">{coin}</div>
+                      {balance.spotWallets && balance.spotWallets[coin] ? (
+                        <div className="mx-1 is-size-8 roboto-Bold">
+                          {math.fix(balance.spotWallets[coin].balance, 8)}
+                        </div>
+                      ) :
+                        <div className="mx-1 is-size-8 roboto-Bold">
+                          0
+                        </div>
+                      }
+                      <RiWalletLine className="text-gray-1" size={16} />
+                    </div>
+
+                  </li>
+                );
+              })
+            : null}
+        </ul>
+        {options.filter((coin) => new RegExp(searchBox, "gi").test(coin))
+          .length >
+          page * 10 ? (
+          <div
+            className="w-100 py-2 pointer text-center text-link"
+            onClick={() => setPage((prev) => prev + 1)}
+          >
+            بیشتر
+          </div>
+        ) : null}
+      </CustomizedModal>
+    </>
+  );
+}
+
+export default memo(BaseAssetInput);

@@ -1,0 +1,9 @@
+@import "../../../../assets/scss/mixins/responsive";
+
+@include breakpoint(sm) {
+    .walletIcon {
+        width: 30px;
+        height: auto;
+        display: none;
+    }
+}

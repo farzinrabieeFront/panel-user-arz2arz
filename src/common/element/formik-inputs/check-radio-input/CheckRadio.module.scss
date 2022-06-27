@@ -1,0 +1,40 @@
+@import "../../../../assets/scss/mixins/responsive";
+
+
+.label {
+    margin-bottom: 4px;
+    font-weight: 500;
+    margin-right: 4px;
+}
+
+.input {
+    &[type=switch] {
+        border: 1px solid red !important;
+    }
+
+    &>label {
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 500;
+        color: var(--main-gray-3);
+    }
+
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+}
+
+@include breakpoint(sm) {
+    .input {
+        min-height: 40px;
+        align-items: center;
+        display: flex;
+    }
+}
+
+.inputErrorText {
+    position: absolute;
+    top: 100%;
+    right: 2px;
+    padding-top: 2px;
+}

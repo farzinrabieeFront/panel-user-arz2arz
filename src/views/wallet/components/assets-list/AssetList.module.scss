@@ -1,0 +1,134 @@
+@import "/src/assets/scss/mixins/responsive";
+
+.input {
+  width: 275px;
+  position: relative;
+  padding-right: 30px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+
+  input {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    color: #505050;
+    padding: 0;
+    padding-right: 1rem;
+
+    &::-moz-placeholder,
+    &::-webkit-input-placeholder {
+      opacity: 1;
+    }
+
+    &:focus,
+    &:active {
+      border: none;
+      outline: none;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    right: 10px;
+    opacity: 0.7;
+  }
+}
+
+.canvas {
+  width: 100%;
+  bottom: 40%;
+  border-top: 0 !important;
+  background: transparent !important;
+  display: flex;
+  align-items: center;
+}
+
+.canvasHeaderWallet {
+  max-width: 850px;
+  background: white !important;
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 20px 20px 0 0;
+}
+
+.canvasBodyWallet {
+  background: white !important;
+  width: 55%;
+  max-width: 850px;
+  padding: 20px;
+  border-radius: 0 0 20px 20px;
+}
+
+@include breakpoint(sm) {
+  .input {
+    width: 100%;
+    margin-top: 1rem;
+    margin-right: 0 !important;
+    height: 44px;
+
+    input {
+      font-size: 14px;
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .wallet {
+    display: block;
+
+    .fiatBalances {
+      width: 100%;
+      margin-bottom: 25px;
+    }
+
+    .spotBalances {
+      width: 100%;
+      margin-bottom: 25px;
+    }
+
+    .chart {
+      margin-bottom: 25px;
+    }
+
+    .table {
+      width: 100%;
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .canvas {
+    width: 100%;
+    height: 100%;
+    border-top: 0 !important;
+    background: transparent !important;
+    display: flex;
+    align-items: center;
+    z-index: 1100;
+    bottom: 0;
+  }
+
+  .canvasBodyWallet {
+    background: white !important;
+    width: 100%;
+    max-width: 850px;
+    padding: 20px;
+    height: 100%;
+    //border-radius: 0 0 20px 20px ;
+  }
+
+  .canvasHeaderWallet {
+    background: white !important;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 0;
+  }
+}

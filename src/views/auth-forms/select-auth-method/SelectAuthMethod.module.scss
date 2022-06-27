@@ -1,0 +1,41 @@
+@import "/src/assets/scss/mixins/responsive";
+
+.methods {
+  background-color: #fff;
+  border: 2px solid var(--main-gray-border);
+  border-radius: 20px;
+  height: 210px;
+  padding: 20px;
+  justify-content: space-evenly;
+  transition: all 0.3s ease-in;
+  // max-width: 200px;
+  &.active {
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0px 8px 16px rgba(0, 186, 186, 0.15);
+    }
+  }
+
+  &.selected {
+    span {
+      color: var(--main-blue);
+    }
+    border: 2px solid var(--main-blue);
+    box-shadow: 0px 8px 16px var(--main-blue-30);
+  }
+}
+
+@include breakpoint(xs) {
+  .methods {
+    height: 100%;
+
+    img {
+      width: 32px;
+    }
+
+    span {
+      font-size: 16px;
+    }
+  }
+}

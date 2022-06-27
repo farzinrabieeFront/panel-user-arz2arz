@@ -1,0 +1,172 @@
+import { useField } from "formik";
+import { useEffect, useState } from "react";
+import { Modal } from "react-bootstrap";
+import {
+  HiOutlineChevronDown,
+  IoAlertCircleOutline,
+  RiErrorWarningLine,
+} from "react-icons/all";
+import TriangleTitle from "../../../../components/triangle-title/TriangleTitle";
+import Styles from "./SelectNetwork.module.scss";
+export default function SelectNetwork({
+  label,
+  symbol,
+  options = [],
+  type,
+  fee = false,
+  ...props
+}) {
+  const [{ value }, , { setValue }] = useField(props);
+  const [showModal, setShowModal] = useState(false);
+  const [infoValue, setInfoValue] = useState({});
+
+  useEffect(() => {
+    if (options.length) {
+      const { network } = options.find((item) => item.isDefault);
+      // console.log(network);
+      setValue(network);
+    }
+  }, [options]);
+
+  useEffect(() => {
+    if (value) {
+      let value_info = options.find(({ network }) => network === value) || {};
+      let { name = "" } = value_info;
+
+      if (name.includes("("))
+        value_info = {
+          ...value_info,
+          name: name.split("(")[1].split(")")[0].toUpperCase(),
+        };
+
+      setInfoValue(value_info);
+    }
+  }, [value, options]);
+
+  const renderOptions = () => {
+    let list = [];
+
+    for (const item of options) {
+      const {
+        withdrawFee,
+        network,
+        name,
+        internalWithdrawEnable,
+        internalDepositEnable,
+        externalWithdrawEnable,
+        externalDepositEnable,
+      } = item;
+
+      const enableWithdraw = internalWithdrawEnable && externalWithdrawEnable;
+      const enableDeposit = internalDepositEnable && externalDepositEnable;
+      const disableNetwork =
+        type === "Withdraw" ? !enableWithdraw : !enableDeposit;
+
+      const network_name = name?.includes("(")
+        ? name?.split("(")[1].split(")")[0].toUpperCase()
+        : name;
+
+      list.push(
+        <li
+          key={network}
+          className={`${Styles.networkName} d-flex flex-wrap justify-content-between align-items-center pointer p-2`}
+          onClick={() => {
+            setValue(network);
+            setShowModal(false);
+          }}
+        >
+          <div className="fw-500 size-4 d-flex">
+            <span className="text-gray-4 en ms-1">{network}</span>
+            <span className="text-gray-2 en ms-1">({network_name})</span>
+          </div>
+          <div className="size-5 ltr">
+            <span className="text-gray-4 en me-1">{withdrawFee}</span>
+            <span className="text-gray-2 en">{symbol}</span>
+          </div>
+          {disableNetwork ? (
+            <div className="col-12">
+              <span className="text-danger size-6">
+                این شبکه در حال حاضر غیر فعال است
+              </span>
+            </div>
+          ) : null}
+        </li>
+      );
+    }
+
+    return list;
+  };
+
+  const rendermodal = () => (
+    <Modal
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      show={showModal}
+      onHide={() => setShowModal(false)}
+    >
+      <Modal.Header className="px-4 pt-4" closeButton>
+        <Modal.Title className={`text-gray-4 size-4`}>
+          <TriangleTitle>انتخاب شبکه</TriangleTitle>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="h-100">
+        <div className="d-flex justify-content-between align-items-center pb-2 px-2">
+          <span className="size-5 text-gray-2">نام شبکه</span>
+          <span className="size-5 text-gray-2">کارمزد</span>
+        </div>
+        <ul className="col-12 p-0 mb-0">{renderOptions()}</ul>
+      </Modal.Body>
+    </Modal>
+  );
+
+  const inputElement = () => {
+    let active_network = true;
+
+    if ("network" in infoValue)
+      active_network =
+        infoValue?.internalWithdrawEnable && infoValue?.externalWithdrawEnable;
+
+    return (
+      <>
+        <label className="fw-500 size-5 text-gray-3 px-1">شبکه</label>
+
+        <div
+          className={`form-control d-flex align-items-center justify-content-between pointer
+          ${!active_network ? "is-invalid" : ""}`}
+          onClick={() => setShowModal(true)}
+        >
+          <span className="fw-500 size-4 ltr">
+            <span className="text-gray-2 en">({infoValue.name})</span>
+            <span className="text-gray-4 en ms-1">{infoValue.network}</span>
+          </span>
+          <HiOutlineChevronDown size={16} className="text-gray-3" />
+        </div>
+
+        {!active_network ? (
+          <div className="text-danger size-5 mt-1 me-1">
+            <IoAlertCircleOutline size={16} />{" "}
+            <span>این شبکه در حال حاضر غیر فعال است</span>
+          </div>
+        ) : fee ? (
+          <span className="text-gray-1 size-5 fw-500 d-flex align-items-center mt-1">
+            <RiErrorWarningLine size={17} className="text-orange ms-1" />
+            <span className="size-5 text-gray-3">کارمزد انتقال شبکه :</span>
+            <span className="ltr mx-1">
+              <span className="size-5 text-gray-3 fw-500 en">
+                {infoValue?.withdrawFee}
+              </span>
+              <span className="size-5 text-gray-2 fw-500 en ms-1">
+                {symbol}
+              </span>
+            </span>
+          </span>
+        ) : null}
+
+        {showModal ? rendermodal() : null}
+      </>
+    );
+  };
+
+  return inputElement();
+}

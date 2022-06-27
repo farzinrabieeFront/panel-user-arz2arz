@@ -1,0 +1,55 @@
+.orderBook {
+  direction: ltr;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  box-shadow: -1px 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  //   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .switchItems {
+    & > li {
+      border: 1px solid #0bc0cf;
+      color: #0bc0cf;
+      border-radius: 3px;
+      &.active {
+        border: 1px solid #0bc0cf;
+        background-color: #0bc0cf;
+        color:#fff;
+      }
+    }
+  }
+  .orders {
+    & > ul {
+      & > li {
+        font-size: 12px;
+        padding: 0.1rem 0.2rem;
+        position: relative;
+        z-index: 3;
+        &:before {
+          position: absolute;
+          content: "";
+          height: 100%;
+          width: 100%;
+          z-index: -1;
+          right: 0;
+          top: 0;
+          bottom: 0;
+        }
+        &[type="sell"] {
+          &:before {
+            opacity: 0.2;
+            background-color: red;
+          }
+        }
+        &[type="buy"] {
+          &:before {
+            opacity: 0.2;
+            background-color: green;
+          }
+        }
+      }
+    }
+  }
+}

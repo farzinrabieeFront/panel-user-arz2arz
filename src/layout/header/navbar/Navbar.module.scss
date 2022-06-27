@@ -1,0 +1,13 @@
+@import "/src/assets/scss/mixins/responsive";
+.navbarList {
+    width: 100%;
+}
+
+.none{
+    display: none !important;
+}
+@include breakpoint(lg) {
+    .none{
+        display: flex !important;
+    }
+}

@@ -1,0 +1,19 @@
+@import "/src/assets/scss/mixins/responsive";
+
+.table {
+  .td {
+    font-size: 12px;
+  }
+
+  .tBody {
+    & > :nth-child(odd) {
+      background: rgba(4, 51, 51, 0.03);
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .tableRows {
+    cursor: pointer;
+  }
+}

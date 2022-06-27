@@ -1,0 +1,32 @@
+.gradient {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+}
+
+.btn {
+  min-height: 48px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  padding: 6px 20px;
+  position: relative;
+
+  &.hasLeftIcon {
+    padding-left: 35px;
+  }
+
+  &.hasRightIcon {
+    padding-right: 35px;
+  }
+}
+
+.leftIcon {
+  position: absolute;
+  left: 10px;
+  transition: 0s;
+}
+
+.rightIcon {
+  position: absolute;
+  right: 10px;
+  transition: 0s;
+}

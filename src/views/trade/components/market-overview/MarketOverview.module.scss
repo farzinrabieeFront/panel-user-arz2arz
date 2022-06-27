@@ -1,0 +1,129 @@
+@import "../../../../assets/scss/colors";
+
+.marketOverviewCard {
+  // border: 1px solid #e0e1e2;
+  background-color: #fff;
+  border-radius: 12px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .searchInput {
+    width: 65%;
+    border: none;
+    position: relative;
+
+    .icon {
+      position: absolute;
+      right: 10px;
+      top: 2px;
+      opacity: 0.7;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.2rem 0.5rem !important;
+      border: 1px solid #eaeaea;
+      text-align: right;
+      border-radius: 6px;
+      outline: none;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
+      padding-right: 40px !important;
+      height: 32px;
+      line-height: 32px;
+
+      &::-webkit-input-placeholder {
+        font-size: 12px;
+        // line-height: 3;
+      }
+    }
+  }
+
+  .filterCoinsList {
+    &>li {
+      border-radius: 8px;
+
+      &.active {
+        background-color: #cecccb;
+        color: #fff;
+      }
+    }
+  }
+
+  .filterAssetsList {
+    display: flex;
+    direction: ltr;
+    width: 100%;
+
+    &>li {
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 400;
+      background: #e8edf2;
+      border-radius: 4px;
+      font-size: 12px;
+
+      &.active {
+        color: #fff;
+        position: relative;
+        background: var(--main-blue);
+
+        &:before {
+          position: absolute;
+          background-color: var(--main-blue);
+          // content: "";
+          width: 50%;
+          height: 1px;
+          bottom: 0px;
+        }
+      }
+
+      // &.activeListStar{
+      //     color: #fff;
+      //   font-weight: 500;
+      //   position: relative;
+      //   background: var(--main-blue);
+
+      // }
+    }
+  }
+
+  .activeStar {
+    color: var(--main-blue);
+  }
+
+  .coins {
+    width: 100%;
+    direction: ltr;
+    height: 100%;
+    // overflow: scroll;
+    // overflow-x: hidden;
+    scrollbar-width: 1px !important;
+
+   
+
+    .price {
+      &[color="green"] {
+        color: #00c56e;
+      }
+
+      &[color="red"] {
+        color: #ff305b;
+      }
+    }
+  }
+}
+
+.textColor {
+
+  // color: attr(color);
+  &[color="green"] {
+    color: #00c56e;
+  }
+
+  &[color="red"] {
+    color: #ff305b;
+  }
+}

@@ -1,0 +1,33 @@
+.video {
+    border: 1px solid var(--main-gray-border);
+    border-radius: 20px;
+    height: 260px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .img {
+        width: 100%;
+    }
+
+    .play {
+        width: 56px;
+        height: 56px;
+        background-color: var(--main-blue-50);
+        border-radius: 100%;
+        color: #fff;
+        position: absolute;
+        transition: all 0.3 ease-in-out;
+
+        &:hover {
+            background-color: var(--main-blue);
+        }
+
+        svg {
+            margin-left: 4px;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+.tb-table {
+  display: table;
+  width: 100%;
+}
+
+.tb-tr {
+  display: table-row
+}
+
+.tb-thead {
+  display: table-header-group
+}
+
+.tb-tbody {
+  display: table-row-group
+}
+
+.tb-td,
+.tb-th {
+  display: table-cell
+}
+
+.tb-th {
+  color: var(--main-gray-2);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 14px;
+}
+
+.tb-td {
+  padding: 10px 14px;
+  color: var(--main-gray-4);
+  font-size: 12px;
+  vertical-align: middle;
+}

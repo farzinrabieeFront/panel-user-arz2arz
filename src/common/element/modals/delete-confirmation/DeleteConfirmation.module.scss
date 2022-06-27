@@ -1,0 +1,19 @@
+@import "../../../../assets/scss/mixins/responsive";
+
+.smModal :first-child {
+  max-width: 372px;
+}
+
+.modalButtons button {
+  min-width: 158px;
+  max-width: 100%;
+}
+
+
+@include breakpoint(xs) {
+  .modalButtons button {
+   
+     width: 100%;
+  }
+  
+}

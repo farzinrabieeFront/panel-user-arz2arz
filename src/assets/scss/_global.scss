@@ -1,0 +1,10 @@
+.wrapper {
+    border-radius: 12px;
+    background-color: var(--bs-white);
+    box-shadow: 0px 8px 70px -15px rgba(0, 186, 186, 0.1);
+    padding: 20px;
+
+    @media (max-width: 767.98px) {
+        padding: 1.5rem ;
+    }
+}

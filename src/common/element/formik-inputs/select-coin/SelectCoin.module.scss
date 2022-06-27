@@ -1,0 +1,50 @@
+.head {
+  .searchInput {
+    width: 100%;
+    border: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .icon {
+      position: absolute;
+      right: 10px;
+      top: 13px;
+    }
+
+    & > input {
+      width: 100%;
+      padding: 1.5rem 38px !important;
+      text-align: right;
+      border-radius: 12px;
+      height: 32px;
+      line-height: 32px;
+
+      &::-webkit-input-placeholder {
+        font-size: 12px;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.list {
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 400px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .item {
+    cursor: pointer;
+    border-top: 1px solid var(--main-bg-light-2);
+
+    img {
+      border-radius: 100%;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

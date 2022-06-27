@@ -1,0 +1,38 @@
+.methodList {
+    .methodItem {
+      border: 1px solid var(--main-gray-border);
+      box-sizing: border-box;
+      border-radius: 12px;
+      height: 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .formCheck {
+        // padding-left: 0rem !important;
+        // padding-right: 1.25rem !important;
+        display: flex;
+        align-items: start;
+        flex-wrap: wrap;
+        padding: 0;
+        width: 14px;
+        height: 14px;
+
+        input {
+          // margin-left: 0rem !important;
+          // margin-right: -1.25rem !important;
+          border-radius: 4px;
+          margin: 0 !important;
+          width: 14px;
+          height: 14px;
+          cursor: pointer;
+        }
+
+        label {
+          margin-top: 0;
+          flex: 1 1;
+
+          padding-right: 8px;
+        }
+      }
+    }
+}

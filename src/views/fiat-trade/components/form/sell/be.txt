@@ -1,0 +1,47 @@
+if (spotAsset !== "USDT") {
+      let internalLowest = 0,
+        externalLowest = 0,
+        internalhighest = 0,
+        externalhighest = 0;
+
+      internalLowest = math.divide(
+        Number(internalLimit.lowest || 0),
+        market_price
+      );
+      internalhighest = math.divide(
+        Number(internalLimit.highest || 0),
+        market_price
+      );
+      externalLowest = math.divide(Number(MIN_NOTIONAL), market_price);
+      externalhighest = math.divide(Number(LOT_SIZE_maxQty), market_price);
+
+      internalLowest = internalLowest === Infinity ? 0 : internalLowest;
+      externalLowest = externalLowest === Infinity ? 0 : externalLowest;
+      internalhighest = internalhighest === Infinity ? 0 : internalhighest;
+      externalhighest = externalhighest === Infinity ? 0 : externalhighest;
+
+      min_amount = math.max(internalLowest, externalLowest);
+      max_amount = math.min(internalhighest, externalhighest);
+
+      if (min_amount && min_amount !== minimumAmount)
+        setMinimumAmount(min_amount);
+      if (max_amount && max_amount !== maximumAmount)
+        setMaximumAmount(max_amount);
+
+      total_fee = math.add(math.divide(Number(internalFee), 100), Number(fee));
+    } else {
+      let internalLowest = 0,
+        internalhighest = 0;
+
+      internalLowest = Number(internalLimit?.lowest || 0);
+      internalhighest = Number(internalLimit.highest || 0);
+      total_fee = math.divide(Number(internalFee), 100);
+
+      internalLowest = internalLowest === Infinity ? 0 : internalLowest;
+      internalhighest = internalhighest === Infinity ? 0 : internalhighest;
+
+      if (internalLowest && internalLowest !== minimumAmount)
+        setMinimumAmount(internalLowest);
+      if (internalhighest && internalhighest !== maximumAmount)
+        setMaximumAmount(internalhighest);
+    }

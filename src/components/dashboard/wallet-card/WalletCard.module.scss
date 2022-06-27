@@ -1,0 +1,147 @@
+@import "/src/assets/scss/mixins/responsive";
+
+[data-type="currency"] {
+  &[data-color="blue"] {
+    &:before {
+      background-color: #4d5fb8 !important;
+    }
+  }
+
+  &[data-color="pink"] {
+    &:before {
+      background-color: #f6bdd0 !important;
+    }
+  }
+
+  &[data-color="yellow"] {
+    &:before {
+      background-color: #ffc800 !important;
+    }
+  }
+
+  &[data-color="cyan"] {
+    &:before {
+      background-color: #50b7f0 !important;
+    }
+  }
+
+  &[data-color="gray"] {
+    &:before {
+      background-color: #e5ebff !important;
+    }
+  }
+
+  &[data-color="darkGray"] {
+    &:before {
+      background-color: #868dac !important;
+    }
+  }
+}
+
+.currencyListItems {
+  span {
+    font-weight: bold;
+    // color: #afb7cb;
+  }
+
+  &.active {
+    background-color: #f2f5ff;
+    border-radius: 15px;
+
+    span {
+      color: #284dd8;
+    }
+  }
+}
+
+.currencyName {
+  position: relative;
+
+  &:before {
+    content: "";
+    // position: absolute;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    border-radius: 5px;
+    transform: rotate(45deg);
+    background-color: red;
+    margin-left: 0.5rem;
+  }
+
+  &:hover {
+    &:before {
+      transform: rotate(45deg), scale(1.1);
+    }
+  }
+}
+
+.chart {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+.chartBox {
+  border-right: 2px solid #e6ebfd;
+}
+.list {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.currencyPic {
+  border-radius: 12px;
+  padding: 10px 12px;
+  width: 46px;
+  color: #0bc0cf;
+  background-color: #f0fafb;
+  font-size: 1.7rem;
+  height: 47px;
+
+  &.rialPic {
+    background-color: #e0f8ed;
+    color: #00c56e;
+  }
+
+  &.dollarPic {
+    background-color: #fff1e1;
+    color: #ff8e0c;
+  }
+
+  img {
+    height: 25px;
+  }
+}
+
+.withdrawIC,
+.depositIC {
+  border-radius: 8px;
+ 
+  // background-color: #e1f8f9;
+
+  // img{
+  //   width: 15px;
+  // }
+}
+
+.withdrawIC {
+  // background-color: #ffe6eb;
+}
+
+@include breakpoint(sm) {
+  .chart {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .list {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 0 !important;
+    margin-top: 1rem;
+  }
+
+  .chartBox {
+    border-right: none;
+    margin-bottom: 1rem;
+  }
+}

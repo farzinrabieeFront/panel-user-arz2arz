@@ -1,0 +1,115 @@
+@import "../../../../assets/scss/mixins/responsive";
+
+.container {
+  position: relative;
+
+  .progressSteps {
+    background: #e8edf2;
+    position: absolute;
+    width: 95%;
+    height: 8px;
+    right: 4%;
+    display: flex;
+    align-items: center;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: width 0.3s ease-in;
+    -webkit-transition: width 0.3s ease-in;
+    -moz-transition: width 0.3s ease-in;
+    top: 17px;
+
+    .current {
+      background: var(--main-blue-grd);
+      position: absolute;
+      height: 8px;
+    }
+  }
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--main-bg-light);
+  border-radius: 100%;
+  position: relative;
+  z-index: 9;
+  border: 2px solid var(--main-bg-light);
+}
+
+.step {
+
+  label {
+    margin-top: 2px;
+  }
+
+  &.active {
+    .icon {
+      background-color: var(--main-blue);
+      border: 2px solid var(--main-blue);
+    }
+    label {
+      color: var(--main-blue);
+    }
+  }
+  &.done {
+    .icon {
+      background-color: #fff;
+      border: 2px solid var(--main-blue);
+    }
+    label {
+      color: var(--main-blue);
+    }
+  }
+}
+
+@include breakpoint(md){
+
+  .container {
+    .progressSteps {
+      right: 4%;
+      width: 94%;
+    }
+  }
+
+
+}
+
+
+@include breakpoint(sm){
+
+  .container {
+    .progressSteps {
+      right: 6%;
+      width: 89%;
+    }
+  }
+
+
+}
+@include breakpoint(xs) {
+  .container{
+    .progressSteps{
+      right: 9%;
+      width: 82%;
+    }
+
+  }
+  .step {
+
+    width: 25%;
+    .current {
+      font-size: 10px;
+
+      &::after {
+        top: 32px;
+        font-size: 9px;
+      }
+    }
+    label{
+      word-break:break-all ;
+    }
+
+  }
+}

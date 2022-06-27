@@ -1,0 +1,13 @@
+@import "../../assets/scss/mixins/responsive";
+
+.formInput {
+  width: 440px;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+@include breakpoint(sm) {
+  .formInput {
+    width: auto;
+  }
+}

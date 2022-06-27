@@ -1,0 +1,44 @@
+@import "../../assets/scss/mixins/responsive";
+
+.tabBtn {
+  border-radius: 6px;
+  min-height: auto;
+  padding: 5px 12px;
+}
+
+.description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  //display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  width: 95%;
+}
+.dotIcon{
+  width: 8px;
+  height: 8px ;
+  background-color: #00BABA;
+  border-radius: 50%;
+}
+.head {
+  height: 48px;
+  border-bottom: 1px solid var(--main-gray-border);
+}
+.items {
+  min-height: 48px;
+  border-top: 1px solid var(--main-gray-border);
+  background: rgba(4, 51, 51, 0.03);;
+  padding: 10px 0;
+  
+  &.unRead {
+    background: #fff !important;
+    
+  }
+}
+
+@include breakpoint(sm) {
+  .head {
+    display: none !important;
+  }
+}

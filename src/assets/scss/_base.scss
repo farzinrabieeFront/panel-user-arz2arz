@@ -1,0 +1,183 @@
+@import "font";
+@import "mixins/responsive";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  // font-family: "IRANyekan";
+  font-family: "IranSans";
+  text-align: right;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #969caa;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #e8edf2;
+  }
+
+  &::-moz-scrollbar {
+    width: 4px;
+  }
+
+  &::-moz-scrollbar-thumb {
+    border-radius: 10px;
+    background: #969caa;
+  }
+
+  &::-moz-scrollbar-track {
+    border-radius: 10px;
+    background-color: #e8edf2;
+  }
+
+  &::-ms-scrollbar {
+    width: 4px;
+  }
+
+  &::-ms-scrollbar-thumb {
+    border-radius: 10px;
+    background: #969caa;
+  }
+
+  &::-ms-scrollbar-track {
+    border-radius: 10px;
+    background-color: #e8edf2;
+  }
+}
+
+html {
+  direction: rtl;
+  overflow-x: hidden;
+}
+
+body {
+  height: 100vh;
+  // background-color: #e5e5e5 !important;
+  // background-color: #F1F5FB !important;
+  // background-color: #f5f7f8 !important;
+  background-color: #f5f7f8 !important;
+  color: #626a82;
+  // font-family: "IRANyekan";
+  font-family: "IranSans";
+  position: relative;
+}
+
+ul {
+  list-style-type: none;
+
+  li {
+    display: flex;
+    align-items: center;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: unset;
+}
+
+a,
+span,
+p {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#root {
+  height: auto;
+  min-height: 100vh;
+  width: 100%;
+}
+
+p,
+span {
+  // text-align: justify;
+}
+
+.FaNum {
+  font-family: "FaNum";
+  font-weight: bold;
+}
+
+@include breakpoint(md) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+.btn-main-shadow {
+  box-shadow: 0px 3px 10px rgba(0, 186, 186, 0.2);
+}
+
+.notif-toast {
+  direction: rtl !important;
+
+  .Toastify__close-button {
+    margin-top: 4px;
+    opacity: 1 !important;
+    color: var(--main-gray-2) !important;
+  }
+}
+
+.Toastify__toast-container--top-left {
+  top: 4em !important;
+  // left: 1em;
+}
+
+.Toastify__toast {
+  border-radius: 12px !important;
+}
+
+:root {
+  --main-bg-dark: #1f2124;
+  --main-gray-0: #d0d5df;
+  --main-gray-05: #bcc1cd;
+  --main-gray-1: #afb7cb;
+  --main-gray-2: #959db0;
+  --main-gray-3: #70798e;
+  --main-gray-4: #515765;
+  --main-gray-5: #303540;
+  --main-gray-border: #d9e0e9;
+  --main-bg-light: #f5f7f8;
+  --main-bg-light-2: #e8edf2;
+  --main-purple: #6059e8;
+  --main-purple-2: #4d46cf;
+  --main-purple-grd: linear-gradient(90deg, #6059e8 0%, #b1aee8 99.5%);
+  --main-purple-light: rgba(170, 169, 221, 0.5);
+  --main-purple-light-30: rgba(170, 169, 221, 0.3);
+  --main-yellow: #f0b90b;
+  --main-yellow-2: #c0980a;
+  --main-orange: #fb8c00;
+  --main-green: #26ab6d;
+  --main-green-2: #198c57;
+  --main-red: #ed5254;
+  --main-red-2: #d94345;
+  --main-blue: #00baba;
+  --main-blue-2: #00a4a4;
+  --main-blue-hover: #00a3a3;
+  --main-hover-bg: rgba(0, 142, 142, 0.06);
+  --main-blue-50: rgba(0, 186, 186, 0.5);
+  --main-blue-30: rgba(0, 186, 186, 0.3);
+  --main-blue-light: rgba(0, 186, 186, 0.06);
+  --main-blue-grd: linear-gradient(90deg, #02baba 0%, #a7e3e3 99.5%);
+  --main-warning-bg: rgba(251, 140, 0, 0.1);
+  --main-danger-bg: rgba(239, 35, 35, 0.1);
+}

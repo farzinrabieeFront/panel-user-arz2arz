@@ -1,0 +1,133 @@
+import { forwardRef, useState } from "react";
+import { Form } from "react-bootstrap";
+import Styles from "./AccountBankDropdown.module.scss";
+import Select, { components } from "react-select";
+import { ErrorMessage, useField } from "formik";
+
+const AccountBankDropdown = forwardRef(
+  (
+    {
+      options = [] /** array */,
+      isMulti = false /** boolean */,
+      isDisabled = false /** boolean */,
+      loading = false /** boolean */,
+      isClearable = false /** boolean */,
+      isRtl = false /** boolean */,
+      isSearchable = false /** boolean */,
+      label /** string */,
+      optionLabel = "label",
+      optionValue = "id",
+      className,
+      errorMessage,
+      placeholder = "انتخاب کنید ..." /** string */,
+      ...props
+    },
+    ref
+  ) => {
+    const [
+      { value, name, onChange, ...field },
+      { error, touched },
+      { setValue },
+    ] = useField(props);
+
+    const formatOptionLabel = (vals) => {
+      return (
+        <div >
+          <div>{vals.name}</div>
+          <div className="size-4 fw-500 en text-gray-4">{vals.card}</div>
+        </div>
+      );
+    };
+
+    const NoOptionsMessage = (props) => {
+      return (
+        <components.NoOptionsMessage {...props}>
+         کارت یافت نشد
+        </components.NoOptionsMessage>
+      );
+    };
+
+    return (
+      <div style={{ margin: "1rem 0" }}>
+        <label className="text-gray-2 size-5 fw-500 mb-1 px-1">{label}</label>
+        <Select
+          classNamePrefix="select"
+          {...field}
+          options={options}
+          placeholder={placeholder}
+          name={name}
+          value={
+            options
+              ? options.find((option) => option.value === field.value)
+              : ""
+          }
+          formatOptionLabel={formatOptionLabel}
+          getOptionLabel={(option) => option[optionLabel]}
+          getOptionValue={(option) => option[optionValue]}
+          isOptionDisabled={(option) => option.isdisabled}
+          onChange={(option) => setValue(option.value)}
+          ref={ref}
+          isMulti={isMulti}
+          isDisabled={isDisabled}
+          loading={loading}
+          isClearable={isClearable}
+          isRtl={isRtl}
+          isSearchable={isSearchable}
+          components={{ NoOptionsMessage }}
+        />
+        {error && touched ? (
+          <ErrorMessage
+            name={name}
+            component={Form.Text}
+            className={`${Styles.inputErrorText} text-danger size-5 text-start`}
+          />
+        ) : null}
+      </div>
+    );
+  }
+);
+export default AccountBankDropdown;
+
+{
+  /*  
+  
+
+  
+  
+  <div style={{ margin: "1rem 0" }}>
+        <label className={`${Styles.label} size-5`}>{label}</label>
+        <Select
+          classNamePrefix="select"
+          {...field}
+          options={options}
+          placeholder={placeholder}
+          name={name}
+          value={
+            options
+              ? options.find((option) => option.value === field.value)
+              : ""
+          }
+          formatOptionLabel={formatOptionLabel}
+          getOptionLabel={(option) => option[optionLabel]}
+          getOptionValue={(option) => option[optionValue]}
+          isOptionDisabled={(option) =>
+            option.isBanned || option.verified !== "approved"
+          }
+          onChange={(option) => setValue(option[optionValue])}
+          ref={ref}
+          isMulti={isMulti}
+          isDisabled={isDisabled}
+          loading={loading}
+          isClearable={isClearable}
+          isRtl={isRtl}
+          isSearchable={isSearchable}
+        />
+        {error && touched ? (
+          <ErrorMessage
+            name={name}
+            component={Form.Text}
+            className={`${Styles.inputErrorText} text-danger size-5 text-start`}
+          />
+        ) : null}
+      </div> */
+}

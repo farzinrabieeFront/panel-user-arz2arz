@@ -1,0 +1,19 @@
+.bgLoader {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(239, 239, 241);
+  background: radial-gradient(
+    circle,
+    rgba(239, 239, 241, 1) 0%,
+    rgba(184, 194, 196, 1) 100%
+  );
+  // background-image: url(/images/bgLoading.jpg);
+  // background-repeat: no-repeat;
+  // background-size: cover;
+
+  img {
+    width: 40%;
+    height: auto;
+    opacity: 0.5;
+  }
+}

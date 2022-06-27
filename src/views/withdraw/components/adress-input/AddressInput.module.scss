@@ -1,0 +1,89 @@
+.inputPrepend {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.inputLabel {
+    margin-bottom: 4px;
+    font-weight: 500;
+    margin-right: 4px;
+    font-size: 12px;
+    color: #70798e;
+}
+
+.address {
+    position: absolute;
+    border: 1px solid var(--main-gray-border);
+    top: 100%;
+    width: 100%;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.16);
+    border-radius: 12px;
+    padding: 6px 0;
+    background-color: #fff;
+
+    z-index: -9;
+    transform: translateY(-130px);
+    opacity: 0;
+
+    transition: all 0.3s ease-in;
+
+    .item {
+        transition: all 0.3s ease-in;
+        cursor: pointer;
+
+        &:hover {
+            background: var(--main-hover-bg);
+        }
+    }
+
+    li {
+        max-height: 0;
+        transition: max-height 0.3s ease-in;
+    }
+
+    &.show {
+        transform: translateY(0px);
+        opacity: 1;
+        z-index: 9;
+
+        li {
+            // display: block;
+            max-height: 200px;
+        }
+    }
+}
+
+.overlayInput {
+    border: none;
+    box-shadow: unset;
+    position: absolute;
+    bottom: 10px;
+    right: 2px;
+    outline: none;
+    width: 80%;
+    height: 43px;
+
+    &:hover {
+        border: none;
+    }
+
+    &:focus,
+    &:active {
+        border-color: none;
+        box-shadow: none;
+    }
+
+    &:invalid,
+    &.is-invalid {
+        border-color: none;
+
+        &:focus,
+        &:active {
+            border-color: none;
+        }
+    }
+}

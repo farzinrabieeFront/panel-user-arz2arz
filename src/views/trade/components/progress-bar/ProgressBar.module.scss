@@ -1,0 +1,21 @@
+.progressBar {
+  border-radius: 12px;
+}
+
+.bar {
+  width: 100%;
+  background-color: #e8ede2;
+  height: 7px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+
+  .buy {
+    background-color: var(--main-green);
+    height: 100%;
+  }
+  .sell {
+    background-color: var(--main-red);
+    height: 100%;
+  }
+}

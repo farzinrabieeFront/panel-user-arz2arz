@@ -1,0 +1,62 @@
+@import "../../../assets/scss/mixins/responsive";
+
+.item {
+  .subMenu {
+    -webkit-transition: max-height 0.5s ease-out;
+    transition: max-height 0.5s ease-out;
+    -moz-transition: max-height 0.5s ease-out;
+    position: relative;
+  }
+}
+
+.subItems {
+  transition: all 0.3s ease-in;
+  border-radius: 12px;
+  margin: 8px 0;
+
+  &:hover {
+    span {
+      color: var(--main-blue);
+    }
+  }
+
+  &.active {
+    position: relative;
+    background: var(--main-hover-bg);
+
+    span {
+      color: var(--main-blue);
+    }
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  a {
+    min-height: 40px;
+    // font-size: 13px;
+  }
+}
+
+.chevron {
+  -webkit-transition: transform 0.5s ease;
+  -moz-transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
+
+  &.rotate {
+    transform: rotate(-90deg);
+  }
+}
+
+@include breakpoint(sm) {
+  .subItems {
+    a {
+      font-size: 13px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import "/src/assets/scss/mixins/responsive";
+
+.headerTable {
+    background-color: #F7F8FC;
+}
+
+.activetype {
+    background-color: #EEF1F8;
+    border-radius: 15px;
+}
+
+.tableImg {
+    img {
+        width: 20px;
+        height: 20px;
+
+        &:last-child {
+            margin-right: -4px;
+        }
+    }
+}
+
+
+
+@include breakpoint(sm) {
+
+    .tableImg {
+        img {
+            display: none;
+        }
+    }
+
+}

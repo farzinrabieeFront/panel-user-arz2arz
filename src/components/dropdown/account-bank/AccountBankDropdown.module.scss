@@ -1,0 +1,144 @@
+@import "/src/assets/scss/colors";
+@import "/src/assets/scss/mixins/responsive";
+
+.address {
+  position: absolute;
+  border: 1px solid var(--main-gray-border);
+  top: 100%;
+  width: 100%;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.16);
+  border-radius: 12px;
+  padding: 6px 0;
+  background-color: #fff;
+  z-index: -9;
+  transform: translateY(-130px);
+  opacity: 0;
+  transition: all 0.3s ease-in;
+
+  .item {
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--main-hover-bg);
+      color: var(--main-blue);
+    }
+
+    &.isdisabled {
+      background-color: var(--main-bg-light);
+      color: var(--main-gray-1);
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: var(--main-bg-light);
+        color: var(--main-gray-1);
+      }
+    }
+  }
+
+  li {
+    max-height: 0;
+    transition: max-height 0.3s ease-in;
+  }
+
+  &.show {
+    transform: translateY(0px);
+    opacity: 1;
+    z-index: 9;
+
+    li {
+      // display: block;
+      max-height: 200px;
+    }
+  }
+}
+
+.fakeValue {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  top: 2px;
+  right: 6px;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.input {
+  cursor: pointer !important;
+  background-color: #fff !important;
+}
+
+.bankCard {
+  word-spacing: 2px;
+}
+
+// .select {
+//   display: block;
+//   width: 100%;
+//   padding: 0.375rem 0.75rem 0.375rem 2.25rem;
+//   font-size: 0.8rem;
+//   font-weight: 400;
+//   line-height: 1.5;
+//   color: #212529;
+//   background-color: #fff;
+//   border-color: rgba(204, 204, 204, 0.2);
+//   outline: 0;
+//   box-shadow: rgba(0, 40, 255 , 0.11) 0px 1px 4px;
+//   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+//   background-repeat: no-repeat;
+//   background-position: left 0.75rem center;
+//   background-size: 16px 12px;
+//   // border: 1px solid #ced4da;
+//   // border-radius: 0.25rem;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+//   min-height: 50px;
+// }
+
+// .inputErrorText{
+//   top: 100%;
+//   left: 5px;
+//   position: absolute;
+// }
+// .optionsCard {
+//   position: absolute;
+//   top: 90%;
+//   display: block;
+//   width: 96%;
+//   border: 1px solid #e6ebfd;
+//   background-color: #fff !important;
+//   z-index: 1;
+//   margin-top: 2px;
+//   border-radius: 5px 5px 10px !important;
+//   overflow: hidden;
+//   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.11);
+
+//   &>li {
+//     transition: all 0.3s ease-in;
+
+//     &:nth-child(n) {
+//       border-bottom: 1px solid #ced4da;
+//     }
+
+//     &:last-child {
+//       border-bottom: none;
+//     }
+
+//     &:hover {
+//       background-color: #f8f8f8;
+//     }
+
+//     &.deactiveCard {
+//       background-color: #eef1f6;
+//     }
+//   }
+// }
+
+// @include breakpoint(sm) {
+//   .selectLabel {
+//     font-size: 10px !important;
+//     top: -9px;
+//   }
+// }

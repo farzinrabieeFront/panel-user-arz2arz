@@ -1,0 +1,19 @@
+.wrapper {
+  height: 832px;
+  transition: all 1s ease-in;
+
+  .selected {
+    background-color: var(--main-blue) !important;
+    border-radius: 8px !important;
+
+    td {
+      span {
+        color: #fff !important;
+      }
+    }
+  }
+
+  .btn {
+    border-radius: 12px;
+  }
+}

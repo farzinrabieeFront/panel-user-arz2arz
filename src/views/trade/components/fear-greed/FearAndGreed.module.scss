@@ -1,0 +1,16 @@
+.fearGreed {
+    position: relative;
+
+    .title {
+        position: absolute;
+        width: 100%;
+        min-height: 23px;
+        background: #fff;
+        padding: 1rem 0.5rem;
+        text-align: center;
+        top: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

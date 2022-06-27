@@ -1,0 +1,85 @@
+@import "../../assets/scss/mixins/responsive";
+@import "../../assets/scss/colors";
+
+.wrapper {
+  overflow: hidden;
+  // padding: 12px 0;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+
+  img {
+    border-radius: 100%;
+    background: var(--main-hover-bg);
+  }
+}
+
+.border {
+  width: 100%;
+  border-bottom: 1px solid #d9e0e9;
+  opacity: 1;
+  background-color: transparent;
+}
+
+.closeMobileBtn {
+  position: absolute;
+  left: 16px;
+  display: none;
+}
+
+.authBtn {
+  min-height: 28px;
+  padding-top: 4px;
+  border-radius: 6px;
+  padding-bottom: 4px;
+}
+
+.authProgress {
+  margin-bottom: 12px;
+  .progress {
+    background-color: var(--main-bg-light-2);
+    height: 4px;
+    border-radius: 4px;
+    position: relative;
+    margin-top: 10px;
+
+    div {
+      position: absolute;
+      background-color: var(--main-blue);
+      height: 4px;
+      border-radius: 4px;
+      right: 0;
+      width: 29%;
+    }
+  }
+}
+@include breakpoint(lg) {
+  .closeMobileBtn {
+    display: block;
+  }
+
+  .wrapper {
+    box-shadow: none !important;
+  }
+}
+
+@include breakpoint(sm) {
+  .authBtn {
+    min-height: 40px;
+    font-size: 13px;
+    svg{
+      width: 17px;
+      height: 17px;
+    }
+  }
+  .authProgress{
+    span{
+      font-size: 12px;
+    }
+  }
+  .nameInfo{
+    font-size: 12px;
+  }
+}

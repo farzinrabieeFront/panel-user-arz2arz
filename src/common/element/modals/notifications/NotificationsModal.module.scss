@@ -1,0 +1,24 @@
+.prevNextBtn {
+  cursor: pointer;
+  span,
+  svg {
+    color: var(--main-gray-2);
+    transition: all 0.3s ease-in;
+  }
+  &:hover {
+    span,
+    svg {
+      color: var(--main-blue);
+    }
+  }
+  &.disabled {
+    cursor: default;
+    opacity: 0.5;
+    &:hover {
+      span,
+      svg {
+        color: var(--main-gray-2);
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.FileInput {
+  border: 1px dashed #afb7cb;
+  box-sizing: border-box;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.input {
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  cursor: pointer;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 99;
+}

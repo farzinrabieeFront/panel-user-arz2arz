@@ -1,0 +1,50 @@
+@import "../../../../assets/scss/mixins/responsive";
+
+.fiatMarketForms {
+  // border: 1px solid #eaeaea;
+  // background-color: #fff;
+  // box-shadow: -1px 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+// .container{
+//   margin-left: -1rem;
+//   margin-right: -1rem;
+// }
+
+// .forms {
+//   width: 36%;
+//   padding: 0 1rem;
+// }
+// .wallet{
+//   width: 28%;
+//   padding: 0 1rem;
+// }
+
+.button {
+  border-radius: 6px;
+  min-height: 31px !important;
+}
+
+// @include breakpoint(sm) {
+//   .formTabs {
+//     margin-left: -8px;
+//     margin-right: -8px;
+//     width: auto !important;
+//   }
+
+//   .balance {
+//     .price {
+//       width: 100%;
+//     }
+
+//     .btnBox {
+//       width: 100%;
+//       text-align: center;
+
+//       .button {
+//         width: 160px;
+//         max-width: 100%;
+//       }
+//     }
+//   }
+// }

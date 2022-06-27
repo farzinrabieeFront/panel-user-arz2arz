@@ -1,0 +1,80 @@
+// .switchBox {
+//   position: relative;
+//   display: inline-block;
+//   // height: 20px;
+//   // width: 40px;
+//   height: 12px;
+//   width: 22px;
+
+//   .switchInput {
+//     opacity: 0;
+//     width: 0;
+//     height: 0;
+//   }
+
+//   .switchTrack {
+//     position: absolute;
+//     cursor: pointer;
+//     border-radius: 30px;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background-color: var(--main-gray-05);
+//     -webkit-transition: 0.4s;
+//     transition: 0.4s;
+//     display: flex;
+//     align-items: center;
+//     justify-content: flex-end;
+
+//     &:before {
+//       position: absolute;
+//       content: "";
+//       width: 8px;
+//       height: 8px;
+//       border-radius: 50%;
+//       -webkit-transform: translateX(3px);
+//       -ms-transform: translateX(3px);
+//       transform: translateX(3px);
+//       background-color: #fff;
+//       -webkit-transition: 0.4s;
+//       transition: 0.4s;
+//     }
+//   }
+
+//   &.on {
+//     .switchTrack {
+//       background-color: var(--main-blue); 
+
+//       &:before {
+//         -webkit-transform: translateX(11px);
+//         -ms-transform: translateX(11px);
+//         transform: translateX(11px);
+//         background-color: #fff;
+       
+//       }
+//     }
+
+//   }
+
+//   input.switchInput:checked+.switchTrack {
+//     background-color: #88B9E8;
+//   }
+
+//   input.switchInput:checked+.switchTrack:before {
+//     -webkit-transform: translateX(26px);
+//     -ms-transform: translateX(26px);
+//     transform: translateX(26px);
+//     background-color: #1976d2;
+//   }
+// }
+
+
+.switch{
+  margin: 0;
+  label{
+    color: var(--main-gray-3);
+    font-size: 12px;
+    font-weight: 500;
+  }
+}

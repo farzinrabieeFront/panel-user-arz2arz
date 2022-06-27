@@ -1,0 +1,58 @@
+@import "../../../../assets/scss/mixins/responsive";
+
+.input {
+  min-height: 32px;
+  padding: 3px 12px 3px 18px;
+  // border: 2px solid #d9e0e9;
+  // border-radius: 16px;
+  border: 1px solid var(--main-gray-border);
+  border-radius: 15px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--main-gray-3);
+  margin-right: 0 !important;
+  margin-left: 1rem;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+
+  &:hover {
+    border: 1px solid var(--main-blue-50);
+  }
+
+  &.active {
+    border-color: var(--main-blue);
+  }
+
+  &.isInvalid {
+    border: 1px solid var(--main-red);
+  }
+
+  input {
+    float: right !important;
+    margin-left: 0.5rem !important;
+  }
+}
+
+.label {
+  margin-bottom: 4px;
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+.inputErrorText {
+  position: absolute;
+  top: 100%;
+  right: 2px;
+  padding-top: 2px;
+}
+
+@include breakpoint(sm) {
+  .input {
+    min-height: 40px;
+    align-items: center;
+    display: flex;
+  }
+}

@@ -1,0 +1,78 @@
+@import "/src/assets/scss/mixins/responsive";
+
+.tabBtn {
+  border-radius: 6px;
+  min-height: auto;
+  padding: 5px 12px;
+}
+
+.trTable {
+  .modalIcon {
+    color: var(--main-gray-1);
+    transition: all 0.3s ease-in;
+  }
+
+  &:hover {
+    .modalIcon {
+      color: var(--main-blue);
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .tr {
+    height: 56px;
+    overflow: hidden;
+    transition: all 0.5s;
+
+    .shownItems {
+      height: 56px;
+    }
+
+    .dropdownIc {
+      transition: all 0.5s;
+    }
+
+    .dropdown {
+      height: 190px;
+      padding: 15px;
+      transition: all 0.2s;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &.active {
+      overflow: none;
+      height: 246px;
+
+      .shownItems {
+        border-bottom: 1px solid var(--main-hover-bg);
+      }
+
+      .dropdownIc {
+        transform: rotate(-90deg);
+      }
+
+      .dropdown {
+        visibility: visible;
+        opacity: 1;
+
+        .shownItems {
+          height: 56px;
+        }
+
+        div {
+          position: relative;
+
+          &:before {
+            position: absolute;
+            content: attr(data-label);
+            color: var(--main-gray-2);
+            top: -5px;
+            right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
